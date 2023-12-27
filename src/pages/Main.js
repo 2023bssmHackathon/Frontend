@@ -3,6 +3,7 @@ import Layout from  "../layout/Layout";
 import ProductItem from "../components/ProductItem";
 import IntroduceText from "../components/IntroduceText";
 import { SaleItemData, BorrowItemData } from "../mocks/ProductItem";
+import { Link } from "react-router-dom";
 
 function Main() {
     return (
@@ -17,13 +18,15 @@ function Main() {
         <ProductGrid>
         {/* 모의 데이터 사용해 ProductItem 사용하기 */}
         {SaleItemData.map((item, index) => (
-          <ProductItem
-            key={index}
-            img={item.img}
-            title={item.title}
-            price={item.price}
-            uploadTime={item.uploadTime}
-          />
+          <StyledLink to={`/detail/${index}`} key={index}>
+            <ProductItem
+              key={index}
+              img={item.img}
+              title={item.title}
+              price={item.price}
+              uploadTime={item.uploadTime}
+            />
+          </StyledLink>
         ))}
         </ProductGrid>
 
@@ -61,4 +64,9 @@ const BannerBox = styled.div`
   height: 320px;
   background-color: #FFECA7;
   margin: 66px 0 41px 0;
+`;
+
+const StyledLink = styled(Link)`
+  color: black;
+  text-decoration: none;
 `;
