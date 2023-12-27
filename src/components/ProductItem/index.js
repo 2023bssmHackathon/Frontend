@@ -37,6 +37,7 @@ const ItemInfoBox = styled.div`
     padding: 10px;
     display: flex;
     flex-direction: column;
+
     gap: 8px;
 `;
 

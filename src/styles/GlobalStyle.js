@@ -13,9 +13,7 @@ const GlobalStyle = createGlobalStyle`
     }
     
     *{
-        margin: 0;
-        border: 0;
-        padding: 0;
+        padding: 48px 115px auto 115px;
     }
 `;
 
