@@ -4,10 +4,12 @@ import Detail from "./pages/Detail";
 
 function App() {
   return (
-    <Routes>
-      <Route index element={<Main />} />
-      <Route path="/detail/:id" element={<Detail />} />
-    </Routes>
+    <>
+      <Routes>
+        <Route index element={<Main />} />
+        <Route path="/detail/:id" element={<Detail />} />
+      </Routes>
+    </>
   );
 }
 
