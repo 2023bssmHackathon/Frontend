@@ -32,6 +32,8 @@ const NoticeBox = styled.div`
     padding: 48px 415px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     gap: 16px;
     bottom: 80px;
 `;
