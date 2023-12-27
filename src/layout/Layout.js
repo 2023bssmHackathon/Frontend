@@ -6,13 +6,17 @@ import Footer from "./Footer";
 
 function Layout({ children }) {
     return (
-        <>
+        <LayoutBox>
             <GlobalStyle />
             <Header />
             <body>{children}</body>
             <Footer />
-        </>
+        </LayoutBox>
     );
 }
   
 export default Layout;
+
+const LayoutBox = styled.div`
+    padding: 48px 115px;
+`;

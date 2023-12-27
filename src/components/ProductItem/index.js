@@ -9,7 +9,8 @@ function ProductItem({img, title, price, uploadTime}) {
             <ItemInfoBox>
                 <ItemTitle>{title}</ItemTitle>
                 <RowBox>
-                    <ItemPrice>{price}원</ItemPrice>
+                    {/* 가격에 천 단위로 컴마 찍기 */}
+                    <ItemPrice>{price.toLocaleString('ko-KR')}원</ItemPrice>
                     <ItemUploadTime>{uploadTime}시간 전</ItemUploadTime>
                 </RowBox>
             </ItemInfoBox>
@@ -25,6 +26,10 @@ const ItemBox = styled.div`
     border-radius: 5px;
     background-color: ${color.White};
     box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.25);
+
+    &:hover {
+        cursor: pointer;
+    }
 `;
 
 const ItemImg = styled.img`

@@ -13,6 +13,7 @@ function IntroduceText({Text1, Text2}) {
 }
 
 const TextBox = styled.div`
+    margin-top: 64px;
     display: flex;
     flex-direction: column;
     gap: 8px;

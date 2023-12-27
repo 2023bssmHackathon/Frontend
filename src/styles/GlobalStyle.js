@@ -11,10 +11,6 @@ const GlobalStyle = createGlobalStyle`
     body {
         font-family: 'GmarketSansMedium';
     }
-    
-    *{
-        padding: 48px 115px auto 115px;
-    }
 `;
 
 export default GlobalStyle;

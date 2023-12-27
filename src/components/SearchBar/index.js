@@ -5,17 +5,11 @@ import font from "../../styles/font";
 function SearchBar () {
   return (
     <SearchBarBox>
-      <SearchIconBox src="/images/icon/search.png" />
-      <TextInput placeholder="상품명을 입력해주세요." />
+      <RowCenter>
+        <SearchIconBox src="/images/icon/search.png" />
+        <TextInput placeholder="상품명을 입력해주세요." />
+      </RowCenter>
       <SearchIconBox src="/images/icon/airplane.png" />
-      <IconGroup>
-            <IconBox src="/images/icon/Vector.png" />
-            <RowTextInput placeholder="쪽지함" />
-      </IconGroup>
-      <IconGroup>
-            <IconBox src="/images/icon/footpoint.png" />
-            <RowTextInput placeholder="냥발 쓰기" />
-      </IconGroup>
     </SearchBarBox>
   );
 }
@@ -26,6 +20,9 @@ const SearchBarBox = styled.div`
   padding: 20px;
   justify-content: space-between;
   align-items: center;
+  padding: 20px;
+  border-radius: 10px;
+  border: 5px solid ${color.Cheese_1};
 `;
 
 const SearchIconBox = styled.img`
@@ -33,20 +30,23 @@ const SearchIconBox = styled.img`
   height: 24px;
 `;
 
-const IconBox = styled.img`
-    width: 45px;
+
+
+const RowCenter = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px;
 `;
 
 const TextInput = styled.input`
-
-`;
-
-const RowTextInput = styled.input`
-`;
-
-const IconGroup = styled.div`
-    width: 78px;
-    height: 78px;
+  ${font.Text500};
+  border: none;
+  outline: none;
+  font-size: 24px;
+  &::placeholder {
+    color: ${color.Gray};
+  }
+  margin-top: 5px;
 `;
 
 export default SearchBar;
