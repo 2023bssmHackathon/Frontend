@@ -6,12 +6,14 @@ import Footer from "./Footer";
 
 function Layout({ children }) {
     return (
+      <>
         <LayoutBox>
-            <GlobalStyle />
-            <Header />
-            <body>{children}</body>
-            <Footer />
+          <GlobalStyle />
+          <Header />
+          <body>{children}</body>
         </LayoutBox>
+        <Footer />
+      </>
     );
 }
   

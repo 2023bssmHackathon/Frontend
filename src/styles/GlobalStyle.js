@@ -11,6 +11,10 @@ const GlobalStyle = createGlobalStyle`
     body {
         font-family: 'GmarketSansMedium';
     }
+
+    * {
+        margin: 0;
+    }
 `;
 
 export default GlobalStyle;
