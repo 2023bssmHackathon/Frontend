@@ -24,7 +24,6 @@ const FooterBox = styled.div`
   align-items: center;
   background: #f2f2f2;
   padding: 20.5px;
-  width: 100%;
   bottom: 0;
 `;
 

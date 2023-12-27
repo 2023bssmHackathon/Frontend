@@ -23,7 +23,6 @@ const ButtonBox = styled.button`
     cursor: pointer;
     transition: 0.2s ease;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
-    background-color: #FFC700;
   }
   &:not(:hover) {
     transition: 0.2s ease;
