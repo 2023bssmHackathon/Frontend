@@ -11,11 +11,9 @@ const GlobalStyle = createGlobalStyle`
     body {
         font-family: 'GmarketSansMedium';
     }
-    
-    *{
+
+    * {
         margin: 0;
-        border: 0;
-        padding: 0;
     }
 `;
 
