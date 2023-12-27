@@ -10,18 +10,6 @@ function Input({isEssential, thingText, placeholder, ...props}) {
                 {props.isTextInput && <StyledInput placeholder={placeholder} />}
                 {props.isTextArea && <StyledTextArea placeholder={placeholder} />}
                 {props.isPriceInput && <StyledPriceInput placeholder={placeholder} />}
-                {props.isRadio && (
-                    <StyledRadioWrapper>
-                        <>
-                            <StyledRadio type="radio" name="radioGroup" value="냥발 판매" />
-                            <RadioLabel>냥발 판매</RadioLabel>
-                        </>
-                        <>
-                            <StyledRadio type="radio" name="radioGroup" value="냥발 대여" />
-                            <RadioLabel>냥발 대여</RadioLabel>
-                        </>
-                    </StyledRadioWrapper>
-                )}
             </InputBox>
             <HorizonLine></HorizonLine>
         </>
@@ -87,41 +75,4 @@ const HorizonLine = styled.div`
     text-align: center;
     border-bottom: 1px solid rgba(0, 0, 0, 0.20);
     line-height: 0.1em;
-`;
-
-const StyledRadioWrapper = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-`;
-
-const StyledRadio = styled.input`
-    appearance: none;
-    width: 24px;
-    height: 24px;
-    border: 2px solid black;
-    border-radius: 50%;
-    outline: none;
-    position: relative;
-    cursor: pointer;
-
-    &:checked {
-        background-color: #000000;
-        border: none;
-    }
-
-    &:checked::after {
-        content: "";
-        position: absolute;
-        width: 24px;
-        height: 24px;
-        border-radius: 50%;
-        background-color: #000000;
-    }
-`;
-
-const RadioLabel = styled.label`
-    font-size: 24px;
-    margin-right: 100px;
 `;

@@ -22,7 +22,7 @@ function Write() {
             <Layout>
                 <TitleText title="냥발 등록하기" useLine={true} />
 
-                <ImgInputBox>
+                <InputBox>
                     <ThingText>냥발 사진</ThingText>
                     <Col>
                         <ImageUploadBox
@@ -47,7 +47,7 @@ function Write() {
                     </ImageUploadBox>
                     <ImgPlaceholder>소중한 냥발의 사진을 등록해 주세요.</ImgPlaceholder>
                 </Col>
-            </ImgInputBox>
+            </InputBox>
             <HorizonLine></HorizonLine>
 
                 <Input
@@ -66,10 +66,19 @@ function Write() {
                     placeholder="냥발의 가격을 입력해 주세요."
                     isPriceInput={true}
                 />
-                <Input
-                    thingText="냥발 종류"
-                    isRadio={true}
-                />
+                <InputBox>
+                    <ThingText>냥발 종류</ThingText>
+                    <StyledRadioWrapper>
+                        <>
+                            <StyledRadio type="radio" name="radioGroup" value="냥발 판매" />
+                            <RadioLabel>냥발 판매</RadioLabel>
+                        </>
+                        <>
+                            <StyledRadio type="radio" name="radioGroup" value="냥발 대여" />
+                            <RadioLabel>냥발 대여</RadioLabel>
+                        </>
+                    </StyledRadioWrapper>
+                </InputBox>
 
             </Layout>
             <PostButtonBox isProduct={true} />
@@ -79,7 +88,7 @@ function Write() {
 
 export default Write;
 
-const ImgInputBox = styled.div`
+const InputBox = styled.div`
     padding: 60px 0;
     display: flex;
     flex-direction: row;
@@ -119,4 +128,42 @@ const HorizonLine = styled.div`
     text-align: center;
     border-bottom: 1px solid rgba(0, 0, 0, 0.20);
     line-height: 0.1em;
+`;
+
+
+const StyledRadioWrapper = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+`;
+
+const StyledRadio = styled.input`
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    border: 2px solid black;
+    border-radius: 50%;
+    outline: none;
+    position: relative;
+    cursor: pointer;
+
+    &:checked {
+        background-color: #000000;
+        border: none;
+    }
+
+    &:checked::after {
+        content: "";
+        position: absolute;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background-color: #000000;
+    }
+`;
+
+const RadioLabel = styled.label`
+    font-size: 24px;
+    margin-right: 100px;
 `;
