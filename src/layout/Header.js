@@ -34,6 +34,7 @@ const NavBar = styled.div`
     flex-direction:row;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 66px;
 `;
 
 const StyledNavLink = styled(Link)`
@@ -44,7 +45,7 @@ const LogoBox = styled.img`
   width: 100px;
   height: 72.171px;
   &:hover {
-      cursor: pointer;
+      cursor: p;
   }
 `;
 
