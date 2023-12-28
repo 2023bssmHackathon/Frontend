@@ -21,4 +21,5 @@ export default Layout;
 
 const LayoutBox = styled.div`
     padding: 48px 115px;
+    min-height: 940px;
 `;

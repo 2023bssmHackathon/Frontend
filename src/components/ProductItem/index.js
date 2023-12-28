@@ -1,17 +1,41 @@
 import styled from "styled-components";
 import color from "../../styles/color";
 import font from "../../styles/font";
+import { useQuery } from "react-query";
+import { getImgBySrc } from "../../api/product/api";
 
-function ProductItem({img, title, price, uploadTime}) {
+function ProductItem({id, img, title, price, uploadTime}) {
+    const { data: imgFile } = useQuery({
+        queryKey: ["imgFile"],
+        queryFn: () => getImgBySrc(img),
+      });
+
+    function getTimeDifference(timestamp) {
+        const currentTime = new Date(); // 현재 시간
+        const targetTime = new Date(timestamp); // 대상 시간
+      
+        const timeDiff = Math.abs(currentTime.getTime() - targetTime.getTime()); // 시간 차이 (밀리초)
+        const hoursDiff = Math.floor(timeDiff / (1000 * 60 * 60)); // 시간 단위로 변환
+      
+        if (hoursDiff > 0) {
+          return `${hoursDiff}시간 전`;
+        } else {
+          return "방금 전";
+        }
+      }
+
+    const time = getTimeDifference(uploadTime);
+
     return (
         <ItemBox>
-            <ItemImg src={img} />
+            <ItemImg src={`https://port-0-backend-1gksli2alphjrcb7.sel5.cloudtype.app/${img}`} />
+            {/* <ItemImg src="images/235564634_1_1700877873_w180.jpg" /> */}
             <ItemInfoBox>
                 <ItemTitle>{title}</ItemTitle>
                 <RowBox>
                     {/* 가격에 천 단위로 컴마 찍기 */}
                     <ItemPrice>{price.toLocaleString('ko-KR')}원</ItemPrice>
-                    <ItemUploadTime>{uploadTime}시간 전</ItemUploadTime>
+                    <ItemUploadTime>{time}</ItemUploadTime>
                 </RowBox>
             </ItemInfoBox>
         </ItemBox>

@@ -9,7 +9,7 @@ function Input({isEssential, thingText, placeholder, ...props}) {
                 <ThingText>{isEssential && "* "}{thingText}</ThingText>
                 {props.isTextInput && <StyledInput placeholder={placeholder} />}
                 {props.isTextArea && <StyledTextArea placeholder={placeholder} />}
-                {props.isPriceInput && <StyledPriceInput placeholder={placeholder} />}
+                {props.isShortInput && <StyledShortInput placeholder={placeholder} />}
             </InputBox>
             <HorizonLine></HorizonLine>
         </>
@@ -30,6 +30,7 @@ const ThingText = styled.span`
 `;
 
 const StyledInput = styled.input`
+    ${font.Text500};
     min-width: 75%;
     max-width: 80%;
     padding: 20px 28px;
@@ -44,6 +45,7 @@ const StyledInput = styled.input`
 `;
 
 const StyledTextArea = styled.textarea`
+    ${font.Text500};
     min-width: 75%;
     max-width: 80%;
     padding: 20px 28px;
@@ -57,7 +59,8 @@ const StyledTextArea = styled.textarea`
     }
 `;
 
-const StyledPriceInput = styled.input`
+const StyledShortInput = styled.input`
+    ${font.Text500};
     width: 50%;
     padding: 20px 28px;
     border: 2px solid #9C9C9C;

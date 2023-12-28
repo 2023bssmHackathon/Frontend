@@ -5,16 +5,53 @@ import TitleText from "../components/common/TitleText";
 import Input from "../components/common/Input";
 import color from "../styles/color";
 import { useState } from "react";
+import { useLocation, useNavigate } from "react-router";
 import PostButtonBox from "../components/PostButtonBox";
+import { useAddProductMutation } from "../api/product/mutation";
 
 function Write() {
-    const [selectedImage, setSelectedImage] = useState();
+    const navigate = useNavigate();
+    const mutation = useAddProductMutation();
+
+    const [selectedImage, setSelectedImage] = useState(null);
+    const [formValues, setFormValues] = useState({
+        title: '',
+        writer: '',
+        price: '',
+        info: '',
+        type: '',
+    });
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setFormValues(prev => ({ ...prev, [name]: value }));
+    };
 
     const handleImageUpload = (event) => {
         const file = event.target.files?.[0];
         if (file) {
           setSelectedImage(URL.createObjectURL(file));
         }
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const formData = new FormData();
+        const fileField = document.querySelector('input[type="file"]');
+        
+        if (fileField && fileField.files[0]) {
+            formData.append("image", fileField.files[0]);
+        }
+
+      formData.append("title", "마루는 강쥐 마우스 패드");
+      formData.append("writer", "2111원설아");
+      formData.append("price", 13000);
+      formData.append("info", "귀여운 마우스 패드");
+      formData.append("deal", "미정");
+      formData.append("type", "sell");
+
+        mutation.mutate(formData);
+        navigate("/");
     };
 
     return (
@@ -49,39 +86,56 @@ function Write() {
                 </Col>
             </InputBox>
             <HorizonLine></HorizonLine>
-
                 <Input
+                    name="writer"
+                    thingText="작성자명" 
+                    placeholder="작성자의 이름을 작성해 주세요."
+                    isShortInput={true}
+                    onChange={handleInputChange}
+                />
+                <Input
+                    name="title"
                     thingText="냥발 제목" 
                     placeholder="냥발의 제목을 정해주세요. ( Ex. 나의 소중한 에어팟, 고양이도 반한 고등어구이 )"
                     isTextInput={true}
+                    onChange={handleInputChange}
                 />
                 <Input 
+                    name="info"
                     thingText="냥발 설명" 
                     placeholder="냥발의 설명을 적어주세요.
                     ( Ex. 애지중지 하던 에어팟입니다.. 최근 오른쪽을 잃어버려 오른쪽만 가진 분과 결투를 바랍니다. 쪽지주세요. )"
                     isTextArea={true}
+                    onChange={handleInputChange}
                 />
                 <Input 
+                    name="price"
                     thingText="냥발 가격" 
                     placeholder="냥발의 가격을 입력해 주세요."
-                    isPriceInput={true}
+                    isShortInput={true}
+                    onChange={handleInputChange}
                 />
                 <InputBox>
                     <ThingText>냥발 종류</ThingText>
                     <StyledRadioWrapper>
                         <>
-                            <StyledRadio type="radio" name="radioGroup" value="냥발 판매" />
+                            <StyledRadio 
+                                type="radio" 
+                                name="type" 
+                                value="sell" 
+                                checked={formValues.type === 'sell'} 
+                                onChange={handleInputChange} 
+                            />
                             <RadioLabel>냥발 판매</RadioLabel>
                         </>
                         <>
-                            <StyledRadio type="radio" name="radioGroup" value="냥발 대여" />
+                            <StyledRadio type="radio" name="type" value="rental" />
                             <RadioLabel>냥발 대여</RadioLabel>
                         </>
                     </StyledRadioWrapper>
                 </InputBox>
-
+                <PostButtonBox isProduct={true} onPost={handleSubmit} />
             </Layout>
-            <PostButtonBox isProduct={true} />
         </>
     )
 }

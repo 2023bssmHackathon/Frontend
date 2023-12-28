@@ -8,16 +8,24 @@ function Header() {
     return (
         <HeaderBox>
             <NavBar>
-                <LogoBox src="/images/Logo.png"/>
+                <StyledNavLink to="/">
+                    <LogoBox src="/images/Logo.png"/>
+                </StyledNavLink>
                 <SearchBar />
-                <IconGroup>
-                    <IconBox src="/images/icon/Vector.png" />
-                    <RowText>쪽지함</RowText>
-                </IconGroup>
-                <IconGroup>
-                    <IconBox src="/images/icon/footpoint.png" />
-                    <RowText>냥발 쓰기</RowText>
-                </IconGroup>
+                <Row>
+                    <StyledNavLink to="/mail/input">
+                        <IconGroup>
+                            <IconBox src="/images/icon/Vector.png" />
+                            <RowText>쪽지함</RowText>
+                        </IconGroup>
+                    </StyledNavLink>
+                    <StyledNavLink to="/write">
+                        <IconGroup>
+                            <IconBox src="/images/icon/footpoint.png" />
+                            <RowText>냥발 쓰기</RowText>
+                        </IconGroup>
+                    </StyledNavLink>
+                </Row>
             </NavBar>
         </HeaderBox>
     );
@@ -38,7 +46,7 @@ const NavBar = styled.div`
 `;
 
 const StyledNavLink = styled(Link)`
-
+    text-decoration: none;
 `;
 
 const LogoBox = styled.img`
@@ -71,4 +79,10 @@ const IconGroup = styled.div`
     &:hover {
         cursor: pointer;
     }
+`;
+
+const Row = styled.div`
+    display: flex;
+    flex-direction: row;
+
 `;
