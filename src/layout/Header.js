@@ -12,18 +12,20 @@ function Header() {
                     <LogoBox src="/images/Logo.png"/>
                 </StyledNavLink>
                 <SearchBar />
-                <StyledNavLink to="/mail/collect">
-                    <IconGroup>
-                        <IconBox src="/images/icon/Vector.png" />
-                        <RowText>쪽지함</RowText>
-                    </IconGroup>
-                </StyledNavLink>
-                <StyledNavLink to="/write">
-                    <IconGroup>
-                        <IconBox src="/images/icon/footpoint.png" />
-                        <RowText>냥발 쓰기</RowText>
-                    </IconGroup>
-                </StyledNavLink>
+                <Row>
+                    <StyledNavLink to="/mail/input">
+                        <IconGroup>
+                            <IconBox src="/images/icon/Vector.png" />
+                            <RowText>쪽지함</RowText>
+                        </IconGroup>
+                    </StyledNavLink>
+                    <StyledNavLink to="/write">
+                        <IconGroup>
+                            <IconBox src="/images/icon/footpoint.png" />
+                            <RowText>냥발 쓰기</RowText>
+                        </IconGroup>
+                    </StyledNavLink>
+                </Row>
             </NavBar>
         </HeaderBox>
     );
@@ -77,4 +79,10 @@ const IconGroup = styled.div`
     &:hover {
         cursor: pointer;
     }
+`;
+
+const Row = styled.div`
+    display: flex;
+    flex-direction: row;
+
 `;

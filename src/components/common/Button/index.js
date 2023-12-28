@@ -32,7 +32,7 @@ const ButtonBox = styled.button`
 const Text = styled.span`
   ${fonts.Text300};
   color: ${color.White};
-  font-size: 28px;
+  font-size: 20px;
 `;
 
 export default Button;

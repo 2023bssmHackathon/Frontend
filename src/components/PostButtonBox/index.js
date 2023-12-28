@@ -3,7 +3,7 @@ import color from "../../styles/color";
 import font from "../../styles/font";
 import Button from "../common/Button";
 
-function PostButtonBox(isProduct) {
+function PostButtonBox({isProduct, onPost}) {
     return (
         <NoticeBox>
             <NoticeText>
@@ -15,7 +15,7 @@ function PostButtonBox(isProduct) {
             </NoticeText>
             <ButtonsBox>
                 {isProduct ? 
-                    <Button text="냥발 등록하기" buttonColor="Cheese_1" /> 
+                    <Button text="냥발 등록하기" buttonColor="Cheese_1" onClick={onPost} /> 
                     :
                     <Button text="쪽지 보내기" buttonColor="Cheese_1" />
                 }
@@ -28,7 +28,7 @@ function PostButtonBox(isProduct) {
 export default PostButtonBox;
 
 const NoticeBox = styled.div`
-    background-color: ${color.Cheese_3};
+    /* background-color: ${color.Cheese_3}; */
     padding: 48px 415px;
     display: flex;
     flex-direction: column;

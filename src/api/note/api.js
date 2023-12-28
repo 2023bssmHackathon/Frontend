@@ -5,8 +5,8 @@ export const createNote = async (NoteData) => {
   return data;
 };
 
-export const getNoteById = async (id) => {
-  const { data } = await instance.get(`/api/note?number=${id}`);
+export const getNoteByNumber = async (number) => {
+  const { data } = await instance.get(`/api/note?number=${number}`);
   return data;
 };
 

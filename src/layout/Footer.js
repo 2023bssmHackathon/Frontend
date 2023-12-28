@@ -18,12 +18,15 @@ function Footer() {
 export default Footer;
 
 const FooterBox = styled.div`
+  bottom: 0;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background: #f2f2f2;
   padding: 20.5px;
+  box-sizing: border-box;
   bottom: 0;
 `;
 

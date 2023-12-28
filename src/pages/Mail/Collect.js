@@ -3,8 +3,15 @@ import Note from "../../components/Note/index"
 import Layout from "../../layout/Layout";
 import TitleText from "../../components/common/TitleText";
 import NoteItemData from "../../mocks/NoteItem";
+import { useQuery } from "react-query";
+import { getNoteByNumber } from "../../api/note/api";
 
 function Collect() {
+  const { data: note } = useQuery({
+    queryKey: ["note"],
+    queryFn: () => getNoteByNumber("2111원설아"),
+  });
+
   return (
     <Layout>
       <TitleText 
@@ -13,13 +20,17 @@ function Collect() {
         useLine={true}
       />
       <NoteGrid>
-        {NoteItemData.map((item, index) => (
+        {note ? 
+          note.map((item, index) => (
           <Note
             Writer={item.writer}
             NoteProduct={item.boardTitle}
             NoteContent={item.info}
           />
-        ))}
+        ))
+        : 
+        <><p>받은 쪽지가 없어요.</p></>
+        }
       </NoteGrid>
     </Layout>
   );

@@ -29,3 +29,8 @@ export const getProductById = async (id) => {
     const { data } = await instance.get(`/api/board/${id}`);
     return data;
 }
+
+export const getImgBySrc = async (src) => {
+    const { data } = await instance.get(`/src`);
+    return data;
+}
